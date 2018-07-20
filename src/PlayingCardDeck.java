@@ -10,6 +10,7 @@ public class PlayingCardDeck {
                     cardDeck.add(new PlayingCard(type, (card % 13) + 1));
                 }
         }
+        shuffleDeck();
     }
 
     public void shuffleDeck() {
@@ -22,7 +23,7 @@ public class PlayingCardDeck {
             tempDeck.add(card);
         }
         cardDeck = tempDeck;
-        printDeck();
+        //printDeck();
     }
 
     public void printDeck() {
@@ -45,6 +46,10 @@ public class PlayingCardDeck {
 
     public void putCard(PlayingCard card) {
         card.flipCard();
+        cardDeck.add(card);
+    }
+
+    public void addCard(PlayingCard card) {
         cardDeck.add(card);
     }
 }
