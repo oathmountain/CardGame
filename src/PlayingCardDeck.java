@@ -11,6 +11,9 @@ public class PlayingCardDeck {
                 }
         }
         shuffleDeck();
+        shuffleDeck();
+        shuffleDeck();
+        shuffleDeck();
     }
 
     public void shuffleDeck() {

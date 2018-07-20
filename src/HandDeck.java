@@ -21,4 +21,7 @@ public class HandDeck{
     public PlayingCard removeCard(CardType type, int value){
         return cardDeck.remove(type + " " + value);
     }
+    public PlayingCard removeCard(PlayingCard card){
+        return removeCard(card.getType(), card.getValue());
+    }
 }
