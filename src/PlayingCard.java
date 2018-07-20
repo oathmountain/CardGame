@@ -25,4 +25,7 @@ public class PlayingCard {
             return -1;
         }
     }
+    public void printCard(){
+        System.out.println(getType() +" " + getValue());
+    }
 }
