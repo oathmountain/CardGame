@@ -1,14 +1,9 @@
 import java.util.ArrayList;
 
-public class PlayingCardHand {
-    private ArrayList<PlayingCard> hand;//linkedlist för performance när handen blandas in i leken?
+class PatienceHand {
+    private ArrayList<PlayingCard> hand = new ArrayList<>();
 
-    public PlayingCardHand(){
-        hand = new ArrayList<>();
-    }
-
-    public void printCards(){
-
+    void printCards(){
         int i = hand.size()-3;
         if(hand.size() < 3){
             i = 0;
@@ -21,18 +16,20 @@ public class PlayingCardHand {
         }
         System.out.println();
     }
-    public void addCard(PlayingCard card){
+
+    void addCard(PlayingCard card){
         hand.add(card);
     }
-    public PlayingCard removeCard(int cardNumber){
+
+    PlayingCard removeCard(int cardNumber){
         return hand.remove(cardNumber);
     }
 
-    public PlayingCard getCard(int cardNumber) {
+    PlayingCard getCard(int cardNumber) {
         return hand.get(cardNumber);
     }
 
-    public int getSize() {
+    int getSize() {
         return hand.size();
     }
 }

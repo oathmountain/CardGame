@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class PatienceBoard {
+class PatienceBoard {
     private ArrayList<ArrayList<PlayingCard>> board;
 
-    public PatienceBoard(PlayingCardDeck deck){
+    PatienceBoard(PlayingCardDeck deck){
         board = new ArrayList<>(7);
         for(int i= 0; i<7;i++){
             board.add(new ArrayList<>());
@@ -24,7 +24,7 @@ public class PatienceBoard {
         }
     }
 
-    public void printBoard(){
+    void printBoard(){
         for(int i = 0; i<7;i++){
             System.out.println("Pile "+i+":");
             for(int j = board.get(i).size()-1;j>=0;j--){
@@ -39,7 +39,7 @@ public class PatienceBoard {
         }
     }
 
-    public void moveCard(int fromPile,int fromCard, int toPile){
+    void moveCard(int fromPile, int fromCard, int toPile){
         if(checkPileInputs(fromPile, toPile)){
             ArrayList<PlayingCard> fromDeck = board.get(fromPile);
             ArrayList<PlayingCard> toDeck = board.get(toPile);
@@ -86,7 +86,7 @@ public class PatienceBoard {
         return fromPile > 0 && fromPile < 7 && toPile > 0 && toPile <7;
     }
 
-    public PlayingCard completeCard(int fromPile){
+    PlayingCard completeCard(int fromPile){
         ArrayList<PlayingCard> thePile = board.get(fromPile);
         PlayingCard card = thePile.remove(thePile.size()-1);
 
@@ -97,20 +97,20 @@ public class PatienceBoard {
         return card;
     }
 
-    public PlayingCard getCard(int pile){
+    PlayingCard getCard(int pile){
         ArrayList<PlayingCard> cardPile = board.get(pile);
-        PlayingCard theCard = cardPile.get(cardPile.size()-1);
-        return theCard;
+        return cardPile.get(cardPile.size()-1);
     }
 
-    public boolean addCard(int pile, PlayingCard card) {
+    boolean addCard(int pile, PlayingCard card) {
         ArrayList<PlayingCard> thePile = board.get(pile);
         PlayingCard pileCard = thePile.get(thePile.size()-1);
         if(pileCard.getValue() == card.getValue()+1){
-            if(pileCard.getType().ordinal() % 2 != card.getType().ordinal() %2);
+            if(pileCard.getType().ordinal() % 2 != card.getType().ordinal() %2) {
                 thePile.add(card);
                 printBoard();
                 return true;
+            }
         }
         System.out.println("Did not match");
         return false;

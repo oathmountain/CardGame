@@ -1,11 +1,11 @@
-public class Menus {
-    public static void printMainMenu() {
+class Menus {
+    static void printMainMenu() {
         System.out.println("1: Start a game of Patience");
         System.out.println("2: Show Patience rules");
         System.out.println("3: Show Patience statistics");
         System.out.println("4: Quit");
     }
-    public static void printPatienceOptions() {
+    static void printPatienceOptions() {
         System.out.println("1: Draw card(s) from the deck");
         System.out.println("2: Show Hand");
         System.out.println("3: Show Board");
@@ -17,7 +17,7 @@ public class Menus {
         System.out.println("9: Quit Game");
     }
 
-    public static void printPatienceRules(){
+    static void printPatienceRules(){
         System.out.println("In this game, you need to fill a deck of completed cards for each suit, in the range from 1 to 13 to win.");
         System.out.println("To do this, you have a board with 7 piles, that at the start has 1 - 7 cards in them, with only one visible.");
         System.out.println("You also have a deck from which you can draw three cars at a time. You see all three, but can only take the top card at any time.");

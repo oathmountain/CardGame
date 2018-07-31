@@ -24,13 +24,13 @@ public class Main {
     }
 
     private static void doMenu(Scanner sc, String statFile, Statistics stats){
-        PlayingCardGame game;
+        Patience game;
         boolean notQuitting = true;
         while (notQuitting) {
             Menus.printMainMenu();
             switch(sc.nextInt()){
                 case 1:
-                    game = new PlayingCardGame();
+                    game = new Patience();
                     stats.playedAGame();
                     writeStatistics(stats,statFile);
                     boolean hasWon = game.doGameLoop(sc);

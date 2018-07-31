@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class PlayingCardDeck {
+class PlayingCardDeck {
     private ArrayList<PlayingCard> cardDeck = new ArrayList<>();
 
-    public PlayingCardDeck() {
+    PlayingCardDeck() {
         for (int card = 0; card < 13; card++) {
             for (PlayingCardType type : PlayingCardType.values())
                 if (type != PlayingCardType.BACKSIDE) {
@@ -16,11 +16,9 @@ public class PlayingCardDeck {
         shuffleDeck();
     }
 
-    public void shuffleDeck() {
+    private void shuffleDeck() {
         ArrayList<PlayingCard> tempDeck = new ArrayList<>();
-
         while (!cardDeck.isEmpty()) {
-
             int index = (int) (Math.random() * cardDeck.size() - 1);
             PlayingCard card = cardDeck.remove(index);
             tempDeck.add(card);
@@ -28,8 +26,7 @@ public class PlayingCardDeck {
         cardDeck = tempDeck;
     }
 
-
-    public PlayingCard drawCard() {
+    PlayingCard drawCard() {
         if (!cardDeck.isEmpty()) {
             PlayingCard card = cardDeck.remove(cardDeck.size() - 1);
             card.flipCard();
@@ -39,11 +36,11 @@ public class PlayingCardDeck {
     }
 
 
-    public void addCard(PlayingCard card) {
+    void addCard(PlayingCard card) {
         cardDeck.add(card);
     }
 
-    public int getSize() {
+    int getSize() {
         return cardDeck.size();
     }
 }
