@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //PlayingCardDeck deck = new PlayingCardDeck();
-        //test(deck);
         Scanner sc = new Scanner(System.in);
         doMenu(sc);
     }
@@ -18,38 +16,16 @@ public class Main {
                     game = new PlayingCardGame();
                     game.doGameLoop(sc);
                     break;
+                case 2:
+                    Menus.printPatienceRules();
+                    break;
+                case 3:
+                    break;
                 case 4:
                     notQuitting = false;
                     System.out.println("Exiting game");
-                    //showGameRules
-                    //showStatistics
-                    //Quit
                     break;
             }
         }
     }
-
-/*    private static CardType getType(String typeString){
-        switch(typeString){
-            case "CLOVER":
-                return CardType.CLOVER;
-            case "DIAMONDS":
-                return CardType.DIAMONDS;
-            case "HEARTS":
-                return CardType.HEARTS;
-            case "SPADES":
-                return CardType.SPADES;
-        }
-        return null;
-    }*/
-
-/*    private static void test(PlayingCardDeck deck) {
-
-        deck.shuffleDeck();
-        deck.drawCard().printCard();
-        deck.drawCard().printCard();
-        deck.drawCard().printCard();
-        deck.putCard(new PlayingCard(CardType.BACKSIDE, 0));
-        deck.printDeck();
-    }*/
 }
