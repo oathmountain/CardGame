@@ -26,17 +26,8 @@ public class PlayingCardDeck {
             tempDeck.add(card);
         }
         cardDeck = tempDeck;
-        //printDeck();
     }
 
-    public void printDeck() {
-        System.out.println(cardDeck.size());
-        for (PlayingCard card : cardDeck) {
-            card.flipCard();
-            System.out.println(card.getType() + " " + card.getValue());
-            card.flipCard();
-        }
-    }
 
     public PlayingCard drawCard() {
         if (!cardDeck.isEmpty()) {
@@ -47,12 +38,12 @@ public class PlayingCardDeck {
         return new PlayingCard(CardType.BACKSIDE, -1);
     }
 
-    public void putCard(PlayingCard card) {
-        card.flipCard();
-        cardDeck.add(card);
-    }
 
     public void addCard(PlayingCard card) {
         cardDeck.add(card);
+    }
+
+    public int getSize() {
+        return cardDeck.size();
     }
 }

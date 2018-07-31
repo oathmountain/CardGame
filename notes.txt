@@ -1,0 +1,1 @@
+Gör så att kung/13 kan läggas i tom array.
