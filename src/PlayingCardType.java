@@ -1,3 +1,3 @@
-public enum CardType {
+public enum PlayingCardType {
     BACKSIDE, SPADES, HEARTS, CLOVER, DIAMONDS
 }

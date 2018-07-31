@@ -2,19 +2,19 @@ import java.util.Scanner;
 
 public class PlayingCardGame {
     PlayingCardDeck deck;
-    HandDeck hand;
+    PlayingCardHand hand;
     PlayingCard[] completed;
-    PatienceBoard board;
+    PlayingCardBoard board;
     public PlayingCardGame(){
         deck = new PlayingCardDeck();
-        hand = new HandDeck();
+        hand = new PlayingCardHand();
         completed = new PlayingCard[4];
         for(int i = 0; i<4;i++) {
-            PlayingCard card = new PlayingCard(CardType.values()[i+1], 0);
+            PlayingCard card = new PlayingCard(PlayingCardType.values()[i+1], 0);
             card.flipCard();
             completed[i] = card;
         }
-        board = new PatienceBoard(deck);
+        board = new PlayingCardBoard(deck);
     }
 
     public boolean doGameLoop(Scanner sc) {

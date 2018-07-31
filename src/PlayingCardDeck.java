@@ -5,8 +5,8 @@ public class PlayingCardDeck {
 
     public PlayingCardDeck() {
         for (int card = 0; card < 13; card++) {
-            for (CardType type : CardType.values())
-                if (type != CardType.BACKSIDE) {
+            for (PlayingCardType type : PlayingCardType.values())
+                if (type != PlayingCardType.BACKSIDE) {
                     cardDeck.add(new PlayingCard(type, (card % 13) + 1));
                 }
         }
@@ -35,7 +35,7 @@ public class PlayingCardDeck {
             card.flipCard();
             return card;
         }
-        return new PlayingCard(CardType.BACKSIDE, -1);
+        return new PlayingCard(PlayingCardType.BACKSIDE, -1);
     }
 
 

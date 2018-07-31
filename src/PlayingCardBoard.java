@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class PatienceBoard {
+public class PlayingCardBoard {
     private ArrayList<ArrayList<PlayingCard>> board;
-    public PatienceBoard(PlayingCardDeck deck){
+    public PlayingCardBoard(PlayingCardDeck deck){
         board = new ArrayList<>(7);
         for(int i= 0; i<7;i++){
             board.add(new ArrayList<PlayingCard>());

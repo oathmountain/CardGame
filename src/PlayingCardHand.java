@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
-public class HandDeck{
+public class PlayingCardHand {
     private ArrayList<PlayingCard> hand;//linkedlist för performance när handen blandas in i leken?
 
-    public HandDeck(){
+    public PlayingCardHand(){
         hand = new ArrayList<>();
     }
 

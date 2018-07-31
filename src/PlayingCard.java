@@ -1,21 +1,21 @@
 public class PlayingCard {
-    private CardType type;
+    private PlayingCardType type;
     private int value;
     private boolean faceUp = false;
 
-    public PlayingCard(CardType cardType, int value){
-        this.type = cardType;
+    public PlayingCard(PlayingCardType playingCardType, int value){
+        this.type = playingCardType;
         this.value = value;
     }
     public void flipCard() {
         faceUp = !faceUp;
     }
 
-    public CardType getType(){
+    public PlayingCardType getType(){
         if(faceUp) {
             return type;
         }else{
-            return CardType.BACKSIDE;
+            return PlayingCardType.BACKSIDE;
         }
     }
     public int getValue(){
