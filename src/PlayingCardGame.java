@@ -4,7 +4,7 @@ public class PlayingCardGame {
     PlayingCardDeck deck;
     PlayingCardHand hand;
     PlayingCard[] completed;
-    PlayingCardBoard board;
+    PatienceBoard board;
     public PlayingCardGame(){
         deck = new PlayingCardDeck();
         hand = new PlayingCardHand();
@@ -14,7 +14,7 @@ public class PlayingCardGame {
             card.flipCard();
             completed[i] = card;
         }
-        board = new PlayingCardBoard(deck);
+        board = new PatienceBoard(deck);
     }
 
     public boolean doGameLoop(Scanner sc) {

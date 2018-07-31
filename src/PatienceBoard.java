@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
-public class PlayingCardBoard {
+public class PatienceBoard {
     private ArrayList<ArrayList<PlayingCard>> board;
-    public PlayingCardBoard(PlayingCardDeck deck){
+
+    public PatienceBoard(PlayingCardDeck deck){
         board = new ArrayList<>(7);
         for(int i= 0; i<7;i++){
-            board.add(new ArrayList<PlayingCard>());
+            board.add(new ArrayList<>());
         }
         fillBoard(deck);
         printBoard();
@@ -22,6 +23,7 @@ public class PlayingCardBoard {
             }
         }
     }
+
     public void printBoard(){
         for(int i = 0; i<7;i++){
             System.out.println("Pile "+i+":");
@@ -29,8 +31,6 @@ public class PlayingCardBoard {
                 if(board.get(i).size()>j){
                     System.out.print((j)+":");
                     board.get(i).get(j).printCard();
-                    //System.out.print(" ");
-                    //System.out.print("  ");
                 }else{
                     System.out.println();
                 }
@@ -38,51 +38,63 @@ public class PlayingCardBoard {
             System.out.println();
         }
     }
+
     public void moveCard(int fromPile,int fromCard, int toPile){
-        if(fromPile > 0 && fromPile < 7 && toPile > 0 && toPile <7){
+        if(checkPileInputs(fromPile, toPile)){
             ArrayList<PlayingCard> fromDeck = board.get(fromPile);
             ArrayList<PlayingCard> toDeck = board.get(toPile);
+
             if(fromCard <= fromDeck.size()){
                 PlayingCard movingCard = fromDeck.get(fromCard);
-                boolean doMove =false;
-                if(!toDeck.isEmpty()) {
-                    PlayingCard toCard = toDeck.get(toDeck.size() - 1);
-                    if(movingCard.getValue()+1 == toCard.getValue()){
-                        if(movingCard.getType().ordinal() % 2 != toCard.getType().ordinal() %2){
-                            doMove = true;
-                        }
-                    }
-                }
 
-                if(movingCard.getValue() == 13 && toDeck.isEmpty()){
-                    doMove = true;
-                }
-
-                if(doMove){
-                    int size = fromDeck.size();
-                    for(int i = fromCard; i<size;i++){
-                        toDeck.add(fromDeck.remove(fromCard));
-                    }
-                    if(!fromDeck.isEmpty()){
-                        fromDeck.get(fromDeck.size()-1).flipCard();
-                    }
+                if(isMovePossible(toDeck, movingCard)){
+                    doMove(fromCard, fromDeck, toDeck);
                     printBoard();
                 }
             }
+        }
+    }
 
+    private void doMove(int fromCard, ArrayList<PlayingCard> fromDeck, ArrayList<PlayingCard> toDeck) {
+        int size = fromDeck.size();
+        for(int i = fromCard; i<size;i++){
+            toDeck.add(fromDeck.remove(fromCard));
+        }
+        if(!fromDeck.isEmpty()){
+            fromDeck.get(fromDeck.size()-1).flipCard();
+        }
+    }
+
+    private boolean isMovePossible(ArrayList<PlayingCard> toDeck, PlayingCard movingCard) {
+        boolean doMove = false;
+        if(!toDeck.isEmpty()) {
+            PlayingCard toCard = toDeck.get(toDeck.size() - 1);
+            if(movingCard.getValue()+1 == toCard.getValue()){
+                if(movingCard.getType().ordinal() % 2 != toCard.getType().ordinal() %2){
+                    doMove = true;
+                }
+            }
         }
 
+        if(movingCard.getValue() == 13 && toDeck.isEmpty()){
+            doMove = true;
+        }
+        return doMove;
+    }
+
+    private boolean checkPileInputs(int fromPile, int toPile) {
+        return fromPile > 0 && fromPile < 7 && toPile > 0 && toPile <7;
     }
 
     public PlayingCard completeCard(int fromPile){
         ArrayList<PlayingCard> thePile = board.get(fromPile);
         PlayingCard card = thePile.remove(thePile.size()-1);
+
         if(!thePile.isEmpty() && thePile.get(thePile.size()-1).getValue() == -1) {
             thePile.get(thePile.size() - 1).flipCard();
         }
         printBoard();
         return card;
-
     }
 
     public PlayingCard getCard(int pile){

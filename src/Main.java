@@ -4,12 +4,13 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        doMenu(sc);
+        String statFile = "statistics.txt";
+        Statistics stats = new Statistics();
+        stats = readStats(statFile, stats);
+        doMenu(sc, statFile, stats);
     }
 
-    private static void doMenu(Scanner sc) {
-        String statFile = "statistics.txt";
-        Statistics stats = new Statistics();;
+    private static Statistics readStats(String statFile, Statistics stats) {
         try{
             FileInputStream fis = new FileInputStream(statFile);
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -19,7 +20,10 @@ public class Main {
         }catch(Exception e){
             System.out.println("Stats reed error" + e);
         }
+        return stats;
+    }
 
+    private static void doMenu(Scanner sc, String statFile, Statistics stats){
         PlayingCardGame game;
         boolean notQuitting = true;
         while (notQuitting) {
