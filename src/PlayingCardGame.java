@@ -17,10 +17,11 @@ public class PlayingCardGame {
         board = new PatienceBoard(deck);
     }
 
-    public void doGameLoop(Scanner sc) {
+    public boolean doGameLoop(Scanner sc) {
+        boolean hasWon = false;
         boolean keepPlaying = true;
         while (keepPlaying) {
-            boolean hasWon = checkWinCondition();
+            hasWon = checkWinCondition();
             if (!hasWon) {
                 Menus.printPatienceOptions();
                 int input = sc.nextInt();
@@ -71,6 +72,7 @@ public class PlayingCardGame {
                 keepPlaying = false;
             }
         }
+        return hasWon;
     }
 
     private boolean checkWinCondition() {
