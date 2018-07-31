@@ -22,7 +22,7 @@ public class PlayingCardGame {
         while (keepPlaying) {
             boolean hasWon = checkWinCondition();
             if (!hasWon) {
-                PatienceOptions.printMenu();
+                Menus.printPatienceOptions();
                 int input = sc.nextInt();
                 switch (input) {
                     case 1:

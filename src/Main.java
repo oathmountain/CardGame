@@ -12,7 +12,7 @@ public class Main {
         PlayingCardGame game;
         boolean notQuitting = true;
         while (notQuitting) {
-            MainMenu.printMenu();
+            Menus.printMainMenu();
             switch(sc.nextInt()){
                 case 1:
                     game = new PlayingCardGame();

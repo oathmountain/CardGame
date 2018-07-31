@@ -1,5 +1,9 @@
-public class PatienceOptions {
-    public static void printMenu() {
+public class Menus {
+    public static void printMainMenu() {
+        System.out.println("1: Start a game of Patience");
+        System.out.println("4: Quit");
+    }
+    public static void printPatienceOptions() {
         System.out.println("1: Draw card(s) from the deck");
         System.out.println("2: Show Hand");
         System.out.println("3: Show Board");
