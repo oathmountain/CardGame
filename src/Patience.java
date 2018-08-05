@@ -21,7 +21,7 @@ class Patience {
     boolean doGameLoop(Scanner sc) {
         boolean keepPlaying = true;
         while (keepPlaying) {
-            if (checkWinCondition()) {
+            if (!checkWinCondition()) {
                 Menus.printPatienceOptions();
                 int input = sc.nextInt();
                 switch (input) {
